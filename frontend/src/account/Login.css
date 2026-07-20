@@ -1,0 +1,158 @@
+.content-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  /* background-color: aquamarine; */
+  justify-content: space-around;
+  align-items: center;
+}
+.image_size{
+  width:100%; 
+  height:100%;
+}
+.card-header{
+  color: white;
+  background-color: transparent !important;
+  border-bottom: none!important;
+}
+.card-body-register{
+  color: white;
+  padding: 1%;
+  overflow-y: hidden;
+  width: 100%;
+  height: 10%;
+}
+.form-group{
+  padding-bottom: 1%;
+}
+.card-body{
+  color: white;
+}
+.card-body-register:hover{
+  overflow-y: scroll;
+  color: white;
+  padding: 1%;
+  width: 100%;
+  height: 10%;
+}
+.form-control{
+  width: 90%;
+}
+.container{
+/* background-color: aqua; */
+align-items: center;
+}
+.object-laptop {
+  /* margin-top: 100px; */
+  flex: 1;
+  flex-direction: column;
+  align-items: end;
+}
+.object-laptop-register{
+  /* margin-left: 20px; */
+  flex: 1;
+}
+.text{
+  color: aliceblue;
+  /* display: flex; */
+  size: 12px;
+  text-align: center;
+}
+.content-wrapper-register{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  /* background-color: aquamarine; */
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.register_info{
+  flex: 1;
+  padding-right: 20px;
+  flex-direction: column;
+  align-items: end;
+}
+.form-section {
+  /* margin-top: 100px; */
+  margin-left: 20px;
+  flex: 1;
+}
+.btn-link{
+  color: white !important;
+}
+.btn-link:hover{
+  cursor: pointer  !important;
+}
+
+.btn_login{
+  color: black;
+  background-color: #59d959;
+  margin-top: 5px;
+  width: 10%;
+  position: sticky;
+  border-radius: 40px;
+  border-color: black;
+}
+.btn_run
+{
+  color: black;
+  background-color: #59d959;
+  margin-top: 5px;
+  height: 100%;
+  width: 10%;
+  position: sticky;
+  border-radius: 40px;
+  border-color: black;
+}
+.btn_selection_1{
+  color: black;
+  background-color: #59d959;
+  margin-top: 5px;
+  /* height: 20%; */
+  /* width: 10%; */
+  position: sticky;
+  border-radius: 40px;
+  border-color: black;
+}
+.btn_selection{
+  color: black;
+  background-color: #59d959;
+  margin-top: 5px;
+  height: 20%;
+  /* width: 10%; */
+  position: sticky;
+  border-radius: 40px;
+  border-color: black;
+}
+.btn_run:hover,
+.btn_selection_1:hover,
+.btn_selection:hover,
+.btn_login:hover{
+  color: white;
+  background-color : transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 1);
+  cursor: pointer;
+
+}
+.image_size_1{
+  width: 60%;
+  height: 80%;
+}
+.image_stack{
+  display: grid;
+  justify-items: center;
+}
+.seletcion_content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+.run_button{
+  display: grid;
+  justify-items: center;
+}

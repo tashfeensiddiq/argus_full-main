@@ -1,0 +1,357 @@
+.table_layout{
+  left: 7%;
+  width: 42.1%;
+  height: 40%;
+  position: fixed;
+  /* background-color: rgba(10, 10, 10,0.2); */
+  /* border: rgba(0, 0, 0,0.2) solid ; */
+  box-shadow: 1px 1px 10px rgba(0, 0, 0,0.5);
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidden;
+  /* border: #f0f0f0 solid ; */
+  /* padding: 0 20px 20px 0; */
+}
+.buGObk{
+  color: rgb(70, 65, 65);
+}
+.selection{
+  left: 8%;
+  width: 40%;
+}
+.add_chart_button_1{
+  width: 100%;
+ 
+}
+.chart_layout{
+  /* left: 7%; */
+  padding: 20px 10px 0px 0px;
+
+  width: 42.1%;
+  /* margin-top: 22%; */
+  height: 40%;
+  /* background: green; */
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  position: fixed;
+  overflow: hidden;
+  background-color: rgba(10, 10, 10,0.2);
+  /* border: rgba(0, 0, 0,0.2) solid ; */
+  box-shadow: 1px 1px 10px rgba(0, 0, 0,0.5);
+  border-radius: 0px 0px 10px 10px;
+}
+.radio_btn{
+  border-radius: 10px 10px 0px 0px;
+  /* box-shadow: 1px 1px 10px rgba(0, 0, 0,0.5); */
+  position: fixed;
+  left: 7%;
+  width: 42.1%;
+  /* height: auto; */
+  margin-top: 21%;
+  color: white;
+  background-color: rgba(10, 10, 10,0.2);
+  display: flex;
+  align-items: center;
+  /* padding-bottom: 10px; */
+  flex-wrap: wrap;
+  padding-bottom: 1px;
+  margin-bottom: 1px;
+  justify-content: space-evenly;
+}
+.chart_layout:hover {
+  padding: 0 10px 10px 0;
+
+overflow-x: scroll;
+}
+/* .number_label{
+  background-color: #706565;
+  margin-left: 7%;
+  color: white;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+} */
+.input_field{
+  /* top: 2%; */
+  width: 33%;
+  position: fixed;
+  /* margin-left: 62%; */
+  display: grid;
+  /* background-color: #59d959;  */
+  /* margin-top: 5px; */
+  /* position: sticky; */
+  /* border-radius: 40px; */
+  /* padding: 5px; */
+  flex-direction: column;
+  
+}
+.size{
+  width: 70%;
+  /* position: relative; */
+  /* left: 40%; */
+  align-self: end;
+  /* margin-left: 10%; */
+  /* display: flex; */
+  /* justify-content: space-between; */
+  justify-items: end;
+
+  /* display: flex;
+  justify:flex-end; */
+}
+.company_name{
+  align-self: flex-end;
+  right: 0;
+}
+.pdf_view{
+  position: fixed;
+  /* display: block; */
+  /* padding-right: 10px; */
+  width: 33%;
+  margin-top: 5%;
+  /* margin-left: 57%; */
+  height: 65%;
+  color: black;
+  background: white;
+  /* margin-right: 10px; */
+  /* border: #f0f0f0 solid ; */
+  overflow: hidden;
+  size: 15px;
+  z-index: 1000;
+}
+.innerdiv{
+  position: sticky;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* background-color: red; */
+}
+.pdf_view:hover{
+  padding-right: 10px;
+  overflow-y: scroll;
+}
+.add_button{
+  width: 100%;
+  height: 100%;
+}
+.view_page{
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  color: black;
+  text-align: center;
+  z-index: 1000;
+  margin: 30;
+}
+.text_styles{
+  margin-left: 4%;
+ 
+}
+.date_Title{
+  font-size: 14px;
+  color: black;
+}
+.page_layout{
+  width: 21cm;
+  height: 29.7cm;
+  background-color: aqua;
+  display: inline;
+  border: #f0f0f0 solid ;
+}
+.pdf_render{
+  top: 8%;
+  margin-left: 55%;
+  width: 33%;
+  height: 80%;
+  position: fixed;
+  display: flex;
+}
+.download_position{
+  position: fixed;
+  margin-left: 23%;
+  bottom: 2%;
+  width: 10%;
+  z-index: 10000;
+}
+.bowxOv{
+  background-color: #080a08 !important;
+}
+.add_note{
+  position: fixed;
+  display: grid;
+  width: 33%;
+  bottom: 7.8%;
+  /* height: 10%; */
+  justify-items: start;
+  /* border: #f0f0f0 solid ; */
+}
+.checkbox_data{
+  position: fixed;
+  display: flex;
+  align-self: baseline;
+  /* width: 40%; */
+  /* margin-left: %; */
+  /* margin-top: 30%; */
+  /* height: 100%; */
+}
+.checkbox_data:checked > .labelforcheckbox{
+color: #59d959;
+}
+.labelforcheckbox{
+  margin-left: 20px;
+  color: #f0f0f0;
+}
+.note_section{
+  /* position: fixed; */
+  width: 100%;
+  height: 100%;
+}
+#makepdf {
+  box-sizing: content-box;
+  width: 700px;
+  height: 150px;
+  padding: 30px;
+  border: 1px solid black;
+  font-style: sans-serif;
+  background-color: #f0f0f0;
+}
+
+
+.btnDiv{
+  /* position: fixed; */
+  display: grid;
+  width: 10%;
+  margin-left: 48%;
+  margin-top: 20%;
+  /* height: 10%; */
+}
+
+
+/* .go_back_button{
+  position: fixed;
+  display: block;
+  margin-left: 40%;
+  margin-top: 40%;
+  height: 10%;
+} */
+
+
+.numbers{
+  background-color: rgba(10, 10, 10,0.2);
+  margin-left: 1%;
+  color: white;
+  width: 45.8%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0,0.5);
+  justify-content: space-evenly;
+}
+.btn_register,
+.btn_update,
+.btn_danger,
+.download_button,
+.file_upload,
+.goback_button{
+  background-color: #59d959;
+  margin-top: 5px;
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  border-radius: 40px;
+  padding: 5px;
+}
+.btn_update,
+.btn_danger,
+.btn_register{
+  width: 20% !important;
+}
+/* .radio_button{
+  background-color: #59d959;
+  color: #59d959;
+  left: 8%;
+  width: 10%;
+} */
+.chg_pass,
+.form-row{
+  color: white;
+}
+.font_label{
+  color: white;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn_update:hover,
+.btn_danger:hover,
+.btn_register:hover,
+.download_button:hover,
+.goback_button:hover{
+  color: white;
+  background-color : transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+  .display_view{
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 10px;
+  flex-direction: "row";
+  white-space: 0px;
+  /* justify-content: "space-between"; */
+  }
+
+  .date_text_header{
+    font-size: 12px;
+      margin-left: 5%;
+      margin-right: 5%;
+  }
+  .date_text{
+      font-size: 10px;
+      /* margin-left: 5%; */
+      /* margin-right: 5%; */
+  }
+  .note_text_header{
+    text-decoration-thickness: 2px;
+    font-size: 12px;
+    margin-left: 5%;
+  }
+  .note_text{
+      font-size: 12px;
+      margin-left: 5%;
+      margin-right: 5%;
+  }
+  .report_header{
+      display: fixed;
+      margin-top: 0%;
+      /* background-color: RED; */
+      width: 90%;
+  }
+  .page_header{
+      /* left: 0px; */
+      margin-left: 90%;
+      margin-top: 2%;
+      height: 15px;
+  }
+  .files_table{
+      border-width: 1px;
+      /* margin-left: 35%; */
+      font-size: 10px;
+      font-weight: 10;
+      justify-content: center;
+  }
+  .files_table_pdf{
+    border-width: 1px;
+    /* margin-left: 35%; */
+    font-size: 10px;
+    font-weight: 10;
+    justify-content: center;
+  }
+  .documnet_pdf{
+      width: 100%;
+      height: 100%;;
+  }
+
+

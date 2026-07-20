@@ -1,0 +1,15 @@
+.Profile_text{
+    top: 30%;
+    color: white;
+    font-size: 120%;
+}
+.form-group{
+    width: 30%;
+}
+.info_password,
+.pt-3{
+    color: white;
+}
+.btn.btn-link{
+    color: white;
+}

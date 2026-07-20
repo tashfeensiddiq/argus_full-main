@@ -1,0 +1,233 @@
+import React, { useState } from "react";
+import { DndProvider, useDrag, useDrop } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import FolderIcon from "@material-ui/icons/Folder";
+import FileIcon from "@material-ui/icons/InsertDriveFile"; // Importing File Icon
+import Modal from "@material-ui/core/Modal"; // Importing Modal
+const type = "folder";
+import { useHistory, NavLink, Link } from "react-router-dom";
+
+const Folder = ({
+  id,
+  left,
+  top,
+  hideSourceOnDrag,
+  name,
+  files,
+  uploadFile,
+}) => {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type,
+    item: { id, left, top },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  }));
+  const history = useHistory();
+
+  const fileInput = React.createRef();
+
+  const [open, setOpen] = useState(false); // State to handle modal visibility
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  const handleFileSelection = (file) => {
+    if (selectedFiles.includes(file)) {
+      setSelectedFiles((prevSelectedFiles) =>
+        prevSelectedFiles.filter((f) => f !== file)
+      );
+    } else {
+      setSelectedFiles((prevSelectedFiles) => [...prevSelectedFiles, file]);
+    }
+  };
+
+  const handleNextClick = () => {
+    // Here, you'll make the backend request to process the selected files.
+    // For now, we'll just console.log the selected files.
+    console.log("Processing selected files:", selectedFiles);
+
+    // Navigate to /threeImages with the uploaded files as state
+    history.push({
+      pathname: "/threeImages",
+      state: { uploadedFiles: selectedFiles },
+    });
+
+    setSelectedFiles([]); // Clear selected files after processing
+    handleClose();
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleFileInputClick = () => {
+    fileInput.current.click();
+  };
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    uploadFile(id, file);
+  };
+
+  if (isDragging && hideSourceOnDrag) {
+    return <div ref={drag} />;
+  }
+
+  return (
+    <div
+      ref={drag}
+      onDoubleClick={handleOpen}
+      style={{
+        position: "absolute",
+        left,
+        top,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        color: "white", // Change text color to white
+        fontSize: "20px", // Increase font size
+      }}
+    >
+      <FolderIcon />
+      <div>{name}</div>
+
+      {/* Modal to display the files and handle file upload */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        <div
+          style={{
+            backgroundColor: "black", // Set contrasting background
+            color: "white", // Set text color to white
+            fontSize: "20px", // Increase font size
+            padding: "20px", // Add some padding
+          }}
+        >
+          <h2>Files in {name}</h2>
+          {files.map((file, index) => (
+            <div
+              key={index}
+              onClick={() => handleFileSelection(file)}
+              style={{
+                cursor: "pointer",
+                backgroundColor: selectedFiles.includes(file)
+                  ? "grey" // Indicate selection with a different background
+                  : "transparent",
+              }}
+            >
+              <FileIcon style={{ fontSize: 40, color: "white" }} />
+              <p>{file.name}</p>
+            </div>
+          ))}
+          {/* Display the Next button only when there are selected files */}
+          {selectedFiles.length > 0 && (
+            <button onClick={handleNextClick}>Next</button>
+          )}
+          <button onClick={handleFileInputClick}>Upload File</button>
+          <input
+            type="file"
+            ref={fileInput}
+            style={{ display: "none" }}
+            onChange={handleFileUpload}
+          />
+        </div>
+      </Modal>
+    </div>
+  );
+};
+
+const Target = ({ moveFolder }) => {
+  const [, drop] = useDrop({
+    accept: type,
+    drop(item, monitor) {
+      const delta = monitor.getDifferenceFromInitialOffset();
+      let left = Math.round(item.left + delta.x);
+      let top = Math.round(item.top + delta.y);
+      moveFolder(item.id, left, top);
+    },
+  });
+
+  return <div ref={drop} style={{ height: "100vh", width: "100vw" }} />;
+};
+
+const Container = () => {
+  const [folders, setFolders] = useState({});
+  const [newFolderName, setNewFolderName] = useState("");
+  const [creatingFolder, setCreatingFolder] = useState(false);
+
+  const moveFolder = (id, left, top) => {
+    setFolders((prevState) => {
+      return { ...prevState, [id]: { ...prevState[id], left, top } };
+    });
+  };
+
+  const uploadFile = (id, file) => {
+    setFolders((prevState) => {
+      return {
+        ...prevState,
+        [id]: { ...prevState[id], files: [...prevState[id].files, file] },
+      };
+    });
+  };
+
+  const addNewFolder = (event) => {
+    event.preventDefault();
+    const id = `folder-${Date.now()}`;
+    const dummyFiles = [
+      { name: "dummy1.txt" },
+      { name: "dummy2.txt" },
+      { name: "dummy3.txt" },
+    ];
+    setFolders((prevFolders) => ({
+      ...prevFolders,
+      [id]: { top: 200, left: 200, name: newFolderName, files: dummyFiles },
+    }));
+    setNewFolderName("");
+    setCreatingFolder(false);
+  };
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+      {creatingFolder && (
+        <form onSubmit={addNewFolder}>
+          <input
+            value={newFolderName}
+            onChange={(e) => setNewFolderName(e.target.value)}
+            required
+          />
+          <button type="submit">Create</button>
+          <button type="button" onClick={() => setCreatingFolder(false)}>
+            Cancel
+          </button>
+        </form>
+      )}
+      {!creatingFolder && (
+        <button onClick={() => setCreatingFolder(true)}>New Folder</button>
+      )}
+      <Target moveFolder={moveFolder} />
+      {Object.keys(folders).map((id) => {
+        const { left, top, name, files } = folders[id];
+        return (
+          <Folder
+            key={id}
+            id={id}
+            left={left}
+            top={top}
+            hideSourceOnDrag={false}
+            name={name}
+            files={files}
+            uploadFile={uploadFile}
+          />
+        );
+      })}
+    </DndProvider>
+  );
+};
+
+export default Container;

@@ -1,0 +1,52 @@
+.anim{
+  opacity: 0;
+  transform: translateY(30px);
+  animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup{
+  100%{
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
+.blink_anim{
+  animation: blink 1s infinite;
+ animation-fill-mode: both;
+ }
+
+
+@keyframes blink {
+ 0% { opacity: 0 }
+ 50% { opacity: 1 }
+ 100% { opacity: 0 }
+ }
+.folder{
+  font-size: 200%;
+}
+.image{
+  font-size: 200%;
+}
+.vid{
+  font-size: 200%;
+}
+.analysis{
+  font-size: 200%;
+}
+.a1{
+  animation-delay: 1s ;
+}
+.a2{
+  animation-delay: 2s ;
+}
+.a3{
+  animation-delay: 3s ;
+}
+.a4{
+  animation-delay: 4s ;
+}
+.a5{
+  animation-delay: 5s ;
+}
+.a6{
+  animation-delay: 6s ;
+}

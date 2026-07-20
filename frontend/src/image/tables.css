@@ -1,0 +1,9 @@
+.row_color{
+    background-color: lightgreen;
+}
+.row_color#active{
+    background-color: lightcoral;
+}
+.chart{
+    background-color: aqua;
+}

@@ -1,0 +1,123 @@
+// async function addImage(req, res) {
+//   const newImage = new db.Image(req.body);
+//   newImage.save((err, data) => {
+//     if (err) {
+//       return res.json({
+//         status: false,
+//         message: "Server error",
+//         result: err,
+//       });
+//     }
+//     return res.json({
+//       status: true,
+//       message: "Album added",
+//       result: data,
+//     });
+//   });
+// }
+
+// async function getImages(req, res) {
+//   db.Image.find().exec((err, images) => {
+//     if (err) {
+//       return res.json({
+//         status: false,
+//         message: "Server error",
+//         result: err,
+//       });
+//     }
+//     return res.json({
+//       status: true,
+//       message: "Getting images successfully!",
+//       result: images,
+//     });
+//   });
+// }
+// async function getImageById(req, res) {
+//   const imageId = req.params.imageId;
+//   db.Image.findById(imageId).exec((err, image) => {
+//     if (err) {
+//       return res.json({
+//         status: false,
+//         message: "Server error",
+//         result: err,
+//       });
+//     }
+//     return res.json({
+//       status: true,
+//       message: "Getting image successfully!",
+//       result: image,
+//     });
+//   });
+// }
+
+// async function addOriginalImagesById(req, res) {
+//   const imageId = req.params.imageId;
+//   const originalImages = [];
+//   const inputFile = req.file.buffer;
+
+//   db.Image.findOneAndUpdate(
+//     {
+//       _id: imageId,
+//     },
+//     {
+//       $push: { originalImage: inputFile },
+//     },
+//     { new: true },
+//     function (err, data) {
+//       if (err) {
+//         return res.json({
+//           status: false,
+//           message: "Server error",
+//           result: err,
+//         });
+//       }
+//       // const directory = "./uploads";
+
+//       // fs.readdir(directory, (err, files) => {
+//       //   if (err) throw err;
+
+//       //   for (const file of files) {
+//       //     fs.unlink(path.join(directory, file), (err) => {
+//       //       if (err) throw err;
+//       //     });
+//       //   }
+//       // });
+//       // console.log(data.originalImage.buffer);
+//       res.set("Content-Type", "image/jpeg");
+//       res.send(data.originalImage);
+//       // return res.json({
+//       //   status: true,
+//       //   message: "update original oritinalImage(s) successfully!",
+//       //   result: data.originalImage.buffer,
+//       // });
+//       // res.send(data.originalImage);
+//     }
+//   );
+// }
+// async function removeOriginalImageById(req, res) {
+//   const imageId = req.params.imageId;
+//   const fileName = req.body.fileName;
+//   db.Image.findOneAndUpdate(
+//     {
+//       _id: imageId,
+//     },
+//     {
+//       $pull: { originalImage: fileName },
+//     },
+//     { new: true },
+//     function (err, data) {
+//       if (err) {
+//         return res.json({
+//           status: false,
+//           message: "Server error",
+//           result: err,
+//         });
+//       }
+//       return res.json({
+//         status: true,
+//         message: "remove original originalImage successfully!",
+//         result: data,
+//       });
+//     }
+//   );
+// }
